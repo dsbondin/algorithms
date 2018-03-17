@@ -3,6 +3,8 @@ function isPrime(number) {
     return false;
   } else if (number === 2) {
     return true;
+  } else if (number % 2 === 0) {
+    return false;
   }
 
   const squareRoot = Math.sqrt(number);
