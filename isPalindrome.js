@@ -7,7 +7,7 @@ function isPalindrome(string) {
     return true;
   } else if (string[0] === string[string.length - 1]) {
     string = string.slice(1, string.length - 1)
-    return isAnagram(string)
+    return isPalindrome(string)
   } else {
     return false
   }
