@@ -16,7 +16,7 @@ function binaryGap(number) {
         maxCount = count
       }
     }
-    if (binary[i] === '1' && count > 0) {
+    if (binary[i] === '1') {
       count = 0;
     }
   }
@@ -24,4 +24,4 @@ function binaryGap(number) {
 }
 
 binaryGap(1025)
-// 9 
+// 9

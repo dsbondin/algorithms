@@ -8,10 +8,10 @@ function hasUnique(string) {
     if (!hash[string[i]]) {
       hash[string[i]] = 1
     } else {
-      return true
+      return false
     }
   }
-  return false
+  return true
 }
 
 function hasUniqueLoop(string) {
@@ -19,9 +19,9 @@ function hasUniqueLoop(string) {
     let char = string[i];
     for (j = i + 1; j < string.length; j++) {
       if (string[j] === char) {
-        return true
+        return false
       }
     }
   }
-  return false
+  return true
 }
