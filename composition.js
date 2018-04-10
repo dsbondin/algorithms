@@ -6,14 +6,18 @@ const barker = function(name) {
   }
 }
 
-const driver = function(position, distance) {
+const runner = function(position, distance) {
   return {
-    drive: function() {
+    run: function() {
       return position += distance
     }
   }
 }
 
-barker("Fido").bark() // Woof, I am Fido!
-
-driver(12, 4).drive() // 16
+const charger = function() {
+  return {
+    charge: function() {
+      console.log("I'm fully charged!")
+    }
+  }
+}
