@@ -21,3 +21,23 @@ const charger = function() {
     }
   }
 }
+
+const robotDog = function(name, position, distance) {
+  this.name = name;
+  this.position = position;
+  this.distance = distance;
+
+  return Object.assign(
+    {},
+    barker(this.name),
+    runner(this.position, this.distance),
+    charger()
+  );
+}
+
+const fido = new robotDog("Fido", 0, 5);
+
+fido.bark() // Woof, I am Fido!
+fido.charge() // I'm fully charged!
+fido.run() // 5
+fido.run() // 10
