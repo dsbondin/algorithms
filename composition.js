@@ -9,7 +9,7 @@ const barker = function(name) {
 const runner = function(position, distance) {
   return {
     run: function() {
-      return position += distance
+      return position += distance;
     }
   }
 }
@@ -17,7 +17,7 @@ const runner = function(position, distance) {
 const charger = function() {
   return {
     charge: function() {
-      console.log("I'm fully charged!")
+      console.log("I'm fully charged!");
     }
   }
 }

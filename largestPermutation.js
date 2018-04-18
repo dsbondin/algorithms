@@ -6,16 +6,16 @@ function largestPermutation(number) {
    let index;
 
    for (let i = 0; i < string.length; i++) {
-      index = parseInt(string[i])
-       if (array[9 - index] === undefined) {
-           array[9 - index] = string[i];
-       } else {
-           array[9 - index] += string[i]
-       }
-       console.log(array)
+     index = parseInt(string[i])
+     if (array[9 - index] === undefined) {
+       array[9 - index] = string[i];
+     } else {
+       array[9 - index] += string[i]
+     }
+     console.log(array);
    }
 
-  return parseInt(array.join(''))
+  return parseInt(array.join(''));
 }
 
 

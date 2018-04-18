@@ -24,10 +24,10 @@ function isPrime(num) {
   const square = Math.sqrt(num);
   for (let j = 3; j < square; j += 2) {
     if (num % j === 0) {
-      return false
+      return false;
     }
   }
-  return true
+  return true;
 }
 
 console.log(largestPrimeFactor(600851475143))
