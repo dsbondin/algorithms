@@ -20,3 +20,18 @@ function reverseStringIteratively(string) {
 function reverseWordsInString(string) {
   return string.split(' ').map(word => reverseStringRecursively(word)).join(' ');
 }
+
+// reverse string in place
+function reverseString(string) {
+  let temp;
+  string = string.split('');
+  for (let i = 0; i < string.length/2; i++) {
+    temp = string[i];
+    string[i] = string[string.length - 1 - i];
+    string[string.length - 1 - i] = temp;
+  }
+  return string.join('');
+}
+
+reverseString('airplane');
+// => 'enalpria'
