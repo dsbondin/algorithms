@@ -1,0 +1,153 @@
+<html>
+<head>
+<script type="text/javascript">
+let Board;
+let Matrix;
+let xsize = 10;
+let ysize = 10;
+
+let dead = 0;
+let alive = 1;
+
+function Neighbors(Board, x, y) {
+	let n = 0;
+	for(let dx = -1; dx < 2; dx++) {
+		let ax = x + dx;
+		for(let dy = -1; dy < 2; dy++) {
+			let ay = y + dy;
+			// fix edge neighbors
+			if (ax >= 0 && ax < xsize && ay >= 0 && ay < ysize && Board[ax][ay] === alive) {
+				if (dx === 0 && dy === 0) {
+					continue;
+				} else {
+					n++;
+				}
+			}
+		}
+	}
+	console.log("x, y, n:", x, y, n)
+	return n;
+}
+
+function Kill(Board, x, y) {
+	console.log('Kill! x, y, cell', x, y)
+	Board[x][y] = dead;
+}
+
+function MakeLive(Board, x, y) {
+	Board[x][y] = alive;
+}
+
+function NextStep(Board) {
+	// k = Neighbors(Board, 0, 2);
+//  	console.log('k', k )
+	bb = new Array(xsize);
+	for(let x = 0; x < xsize; x++)
+	{
+		bb[x] = new Array(ysize);
+		for(let y = 0; y < ysize; y++)
+			bb[x][y] = 0;
+	}
+
+	 for(let x = 0; x < xsize; x++) {
+		for(let y = 0; y < ysize; y++) {
+			n = Neighbors(Board, x, y);
+			bb[x][y] = n;
+			//console.log('bb{x,y}, x, y', bb[x,y], x, y)
+
+		}
+ 	}
+ 		console.log('bb', bb[1][1])
+ 		console.log('board', Board[1][1])
+
+ 	 for(let x = 0; x < xsize; x++) {
+		for(let y = 0; y < ysize; y++) {
+			n = bb[x][y];
+			console.log('x, y, n ', x, y, n);
+
+			//fixed if (n=3)
+			if(n === 3) {
+				MakeLive(Board, x, y);
+			}
+
+			if((n<2)||(n>3)) {
+				Kill(Board, x, y);
+			}
+		}
+ 	}
+ }
+
+
+function DrawBoard(Board)
+{
+	var Text = "";
+	for(let y = 0; y < ysize; ++y) {
+		for(let x = 0; x < xsize; ++x) {
+			Text += Board[x][y] === alive ? "o" : "_";
+		}
+		Text += "<br/>";
+	}
+	document.getElementById("board").innerHTML = Text;
+}
+
+function Main()
+{
+    // *** Change this variable to choose a different baord setup from below
+    var BoardSetup = "blinker";
+
+	Board = new Array(xsize);
+	for(let x = 0; x < xsize; x++)
+	{
+		Board[x] = new Array(ysize);
+		for(let y = 0; y < ysize; y++)
+			Board[x][y] = 0;
+	}
+
+	let Matrix = [...Board];
+
+	if(BoardSetup == "blinker")
+	{
+	    Board[1][0] = 1;
+	    Board[1][1] = 1;
+	    Board[1][2] = 1;
+    }
+    else if(BoardSetup == "glider")
+    {
+	    Board[2][0] = 1;
+	    Board[2][1] = 1;
+	    Board[2][2] = 1;
+	    Board[1][2] = 1;
+	    Board[0][1] = 1;
+    }
+    else if(BoardSetup == "flower")
+    {
+        Board[4][6] = 1;
+        Board[5][6] = 1;
+        Board[6][6] = 1;
+        Board[7][6] = 1;
+        Board[8][6] = 1;
+        Board[9][6] = 1;
+        Board[10][6] = 1;
+        Board[4][7] = 1;
+        Board[6][7] = 1;
+        Board[8][7] = 1;
+        Board[10][7] = 1;
+        Board[4][8] = 1;
+        Board[5][8] = 1;
+        Board[6][8] = 1;
+        Board[7][8] = 1;
+        Board[8][8] = 1;
+        Board[9][8] = 1;
+        Board[10][8] = 1;
+    }
+
+	DrawBoard(Board);
+}
+</script>
+</head>
+<body onload="Main()">
+<div id="board">
+</div>
+<a href="#IGoNowhere" onclick="NextStep(Board);DrawBoard(Board);">Next -></a>
+</body>
+</html>
