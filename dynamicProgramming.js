@@ -10,7 +10,9 @@ function fib(n) {
   return fib(n - 1) + fib(n - 2);
 }
 
-// console.log(fib(48)); // 2971215073 - 39 seconds to run
+// console.log(fib(48)); // 2971215073 - 38 seconds to run
+// console.log(fib(45)); // 701408733 - 9 seconds
+console.log(fib(42)); // 63245986 - 1 second
 
 let fibsArray = [];
 

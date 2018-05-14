@@ -11,8 +11,8 @@ let rect = new Rectangle(4, 5);
 rect.area();
 // 20
 
-function Square(length) {
- this.width = this.height = length;
+function Square(size) {
+ this.width = this.height = size;
 }
 
 Square.prototype = Object.create(Rectangle.prototype);
