@@ -35,3 +35,14 @@ function reverseString(string) {
 
 reverseString('airplane');
 // => 'enalpria'
+
+// another in-place solution
+function reverseInPlace(string) {
+  for (let i = 1; i < string.length; i ++) {
+    string = string[i] + string.slice(0, i) + string.slice(i + 1);
+  }
+  return string;
+}
+
+console.log(reverseInPlace('computer'));
+// retupmoc
