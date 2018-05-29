@@ -1,5 +1,5 @@
 function superReducedString(s) {
-    function remove(str) {
+    function removeDouble(str) {
         for (let i = 0; i < str.length - 1; i++) {
             if (str[i] === str[i+1]) {
                 return str.slice(0, i) + str.slice(i+2)
@@ -8,7 +8,7 @@ function superReducedString(s) {
         return str;
     }
 
-    while (s !== remove(s)) {
+    while (s !== removeDouble(s)) {
         s = remove(s)
     }
 
