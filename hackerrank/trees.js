@@ -33,7 +33,7 @@ root.left.right = new Node(11);
 root.right.left = new Node(13);
 root.right.right = new Node(15);
 
-console.log('dfs 13: ', dfs(root, 11));
-console.log('bfs 13: ', bfs(root, 11));
+console.log('dfs 11: ', dfs(root, 11));
+console.log('bfs 11: ', bfs(root, 11));
 console.log('dfs 12: ', dfs(root, 12));
 console.log('bfs 12: ', bfs(root, 12));

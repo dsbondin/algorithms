@@ -13,16 +13,14 @@ function merge(left, right) {
   let array = [];
   while (left.length !== 0 && right.length !== 0) {
     if (left[0] <= right[0]) {
-      array.push(left[0]);
-      left.shift();
+      array.push(left.shift());
     } else {
-      array.push(right[0]);
-      right.shift();
+      array.push(right.shift());
     }
   }
   return array.concat(left).concat(right)
 }
 
-mergeSort([1, 0, 4, -10, 34, 12, -7, 9])
+console.log(mergeSort([1, 0, 4, -10, 34, 12, -7, 9]))
 
 // => [ -10, -7, 0, 1, 4, 9, 12, 34 ]
