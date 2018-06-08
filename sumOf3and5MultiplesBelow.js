@@ -8,7 +8,7 @@ function sumOf3and5MultiplesBelow(number) {
   for (let i = 3; i < number; i += 3) {
     sum += i;
   }
-  for (i = 5; i < number; i += 5) {
+  for (let i = 5; i < number; i += 5) {
     if (i % 3 !== 0) {
       sum += i;
     }

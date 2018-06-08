@@ -1,9 +1,9 @@
 String.prototype.repeatify = String.prototype.repeatify || function(n) {
-  let outputString = ''
+  let outputString = '';
   for (let i = 0; i < n; i++) {
-    outputString += this
+    outputString += this;
   }
-  console.log(outputString)
+  console.log(outputString);
 }
 
 // "hello".repeatify(3) => hellohellohello

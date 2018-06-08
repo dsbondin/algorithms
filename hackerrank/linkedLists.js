@@ -6,7 +6,7 @@ function Node = (data) => {
 function insertNodeAtPosition(head, data, position) {
     let targetNode = head;
     for (let i = 0; i < position - 1; i++) {
-        targetNode = targetNode.next;
+      targetNode = targetNode.next;
     }
     let nextNode = targetNode.next;
     targetNode.next = new Node(data);

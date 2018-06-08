@@ -1,16 +1,14 @@
 function reverseStringRecursively(string) {
-  if (string.length === 1) {
+  if (string.length < 2) {
     return string;
-  } else if (string.length > 1){
-    return reverseStringRecursively(string.slice(1)) + string[0]
   } else {
-    return '';
+    return reverseStringRecursively(string.slice(1)) + string[0]
   }
 }
 
 function reverseStringIteratively(string) {
   let reversedString = ''
-  const l = string.length - 1
+  const l = string.length - 1;
   for (let i = l; i >= 0; i--) {
     reversedString += string[i];
   }
