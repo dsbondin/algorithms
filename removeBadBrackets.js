@@ -1,20 +1,30 @@
-// buggy code
-
 function removeBadBrackets(string) {
-  let closed = true;
+  let counter = 0;
   let l = string.length;
-  let last;
-  for (let i = 0; i < string.length; i++) {
-    if (closed) {
-      if (string[i] === '(') closed = false; last = i;
-      if (string[i] === ')') string = string.slice(0, i) + string.slice(i + 1);
-    } else {
-      if (string[i] === ')') closed = true;
-      if (string[i] === '(') string = string.slice(0, i) + string.slice(i + 1);
+  for (let i = 0; i < l; i ++) {
+    if (string[i] === '(') counter ++;
+    if (string[i] === ')') counter --;
+    if (counter < 0) {
+      string = string.slice(0, i) + string.slice(i + 1);
+      counter ++;
+      i --;
+      l --;
     }
   }
-  if (!closed) string = string.slice(0, last) + string.slice(last + 1);
+
+  if (counter > 0) {
+    for (let i = l - 1; i >= 0; i --) {
+      if (string[i] === '(') {
+        string = string.slice(0, i) + string.slice(i + 1);
+        counter --;
+        i ++;
+        l --;
+        if (counter === 0) break;
+      }
+    }
+  }
+
   return string;
 }
 
-console.log(removeBadBrackets('a)b(c) (defg() (h) ijk (lmnop'))
+console.log(removeBadBrackets('(((((((a)b(c)(defg()(h)ijk(lmnop'))
