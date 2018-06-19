@@ -9,7 +9,6 @@ function matrix(n) {
     }
   }
 
-
   while (matrix.length) {
     if (matrix.length === 1) return matrix[0][0];
     matrix.shift();
