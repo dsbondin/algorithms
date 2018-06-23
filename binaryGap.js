@@ -6,15 +6,12 @@ function binaryGap(number) {
   }
 
   const binary = number.toString(2);
-  console.log(binary);
   let maxCount = 0, count = 0;
 
   for (let i = 1; i < binary.length; i++) {
     if (binary[i] === '0') {
       count++;
-      if (count > maxCount) {
-        maxCount = count;
-      }
+      maxCount = Math.max(maxCount, count);
     }
     if (binary[i] === '1') {
       count = 0;
@@ -23,5 +20,5 @@ function binaryGap(number) {
   return maxCount;
 }
 
-binaryGap(1025)
+console.log(binaryGap(1025));
 // 9

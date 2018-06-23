@@ -27,7 +27,7 @@ const maxTreeWidth = (root) => {
   let queue = [root];
   while (queue.length !== 0) {
     let l = queue.length;
-    if (l > maxWidth) maxWidth = l;
+    maxWidth = Math.max(maxWidth, l);
     for (let i = 0; i < l; i++) {
       let node = queue.shift();
       if (node.left) queue.push(node.left);

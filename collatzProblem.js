@@ -1,13 +1,8 @@
 function bringToOne(number) {
   let steps = 0;
   while (number !== 1) {
-    if (number % 2 === 0) {
-      steps++;
-      number = number / 2;
-    } else {
-      steps++;
-      number = number * 3 + 1;
-    }
+    steps++;
+    number % 2 === 0 ? number = number / 2 : number = number * 3 + 1;
   }
   return steps;
 }

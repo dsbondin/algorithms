@@ -27,7 +27,7 @@ function kthPermutation(arr, k, m = []) {
     for (let i = 0; i < arr.length; i++) {
       let rest = arr.slice(); // copy arr without mutating
       let curr = rest.splice(i, 1); // next is th i-th element, curr is the rest
-      kthPermutation(rest, count, m.concat(next))
+      kthPermutation(rest, count, m.concat(curr))
     }
   }
 }

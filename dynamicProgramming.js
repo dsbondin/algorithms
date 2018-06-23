@@ -12,7 +12,7 @@ function fib(n) {
 
 // console.log(fib(48)); // 2971215073 - 38 seconds to run
 // console.log(fib(45)); // 701408733 - 9 seconds
-console.log(fib(42)); // 63245986 - 1 second
+// console.log(fib(42)); // 63245986 - 1 second
 
 let fibsArray = [];
 
@@ -30,4 +30,4 @@ function dynamicFib(n) {
   return fib;
 }
 
-console.log(dynamicFib(100))
+console.log(dynamicFib(1000))
